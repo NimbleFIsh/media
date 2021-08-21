@@ -17,6 +17,7 @@ else {
     const spec_controls = d.getElementById('spec_block');
     const messages = d.getElementById('messages');
     const controls_container = d.getElementById('controls');
+    const geo = d.getElementById('geo');
 
     let timerID = null,
         media = null,
@@ -24,13 +25,15 @@ else {
         mediaType = null;    
 
     function showErrCoords() {
-
+        d.body.insertAdjacentHTML('afterbegin', template.modal); // Рендер моадльного окна
+        // localStorage['geo']
     }
 
-    const setCity = async data =>localStorage['geo'] = await getCity(data);
-
+    const setCity = async data => { localStorage['geo'] = await getCity(data); geo.innerText = localStorage['geo']; }
+    
     // Проверка записи о городе
-    if (!localStorage['geo']) navigator.geolocation.getCurrentPosition(setCity, err => console.error(err.message));
+    if (!localStorage['geo']) navigator.geolocation.getCurrentPosition(setCity, err => geo.innerText = err.message);
+    else geo.innerText = localStorage['geo'];
 
     function renderBlock(type = null, obj = null) {
         const li = d.createElement('li');

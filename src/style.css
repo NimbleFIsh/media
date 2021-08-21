@@ -141,3 +141,13 @@ video {
   right: 10px;
   top: 10px;
 }
+
+#geo {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid grey;
+  border-radius: 15px;
+}
