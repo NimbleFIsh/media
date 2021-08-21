@@ -1,0 +1,3 @@
+{
+    "base": "<div class=\"container\"><ul id=\"messages\"></ul><div id=\"controls\"><div id=\"inp_container\"><input type=\"text\" name=\"text\" placeholder=\"Введите сообщение...\" /><div id=\"spec_controls\"><div id=\"spec_block\" class=\"hide\"><div id=\"accept\"></div><div id=\"time\"></div><div id=\"denied\"></div></div><div id=\"standart\"><div id=\"control_audio\"></div><div id=\"control_video\"></div></div></div></div><button type=\"button\" disabled>Отправить</button></div>"
+}
