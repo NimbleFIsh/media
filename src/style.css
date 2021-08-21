@@ -22,12 +22,12 @@ body {
   align-items: center;
   justify-content: center;
   height: 65vh;
-  width: 35vw;
+  width: 40vw;
 }
 
 input {
   height: 40px;
-  padding: 0 80px 0 8px;
+  padding: 0 105px 0 8px;
   border-radius: 15px;
   width: 380px;
   border: 1px solid grey;
@@ -49,7 +49,7 @@ input:focus {
 #spec_controls {
   position: absolute;
   height: 40px;
-  width: 80px;
+  width: 100px;
   right: 0px;
   top: 0;
   display: flex;
@@ -69,24 +69,22 @@ input:focus {
   border: 1px solid grey;
   border-radius: 50%;
   cursor: pointer;
-}
-
-#accept {
-
-}
-
-#time {
-
-}
-
-#denied {
-
-}
-
-#control_audio, #control_video {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 16px;
+}
+
+#accept {
+  background-image: url('../img/accept.svg');
+}
+
+#time {
+  margin: 0 5px;
+}
+
+#denied {
+  background-image: url('../img/close.svg');
+  background-position: 5px 5px;
 }
 
 #control_audio {
@@ -105,19 +103,41 @@ button {
   border-radius: 15px;
   border: 1px solid grey;
   cursor: pointer;
+  background-color: #fff;
 }
 
-button:disabled {
-  background-color: #fff;
+input:disabled, button:disabled {
+  background-color: lightgrey;
   cursor: not-allowed;
+  color: #000;
 }
 
 #messages {
   height: 90%;
   width: 100%;
   margin-bottom: 15px;
+  overflow-x: hidden;
+}
+
+video {
+  width: 300px;
+}
+
+#messages li {
+  position: relative;
+  margin-bottom: 10px;
+  border: 2px solid grey;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #fff;
 }
 
 .hide {
   display: none !important;
+}
+
+.timestamp {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
