@@ -151,3 +151,43 @@ video {
   border: 1px solid grey;
   border-radius: 15px;
 }
+
+#modal {
+  position: absolute;
+  width: 32vw;
+  background-color: #fff;
+  padding: 15px;
+  border: 2px solid grey;
+  border-radius: 25px;
+}
+
+#modal p {
+  margin-bottom: 10px;
+}
+
+#modal input {
+  border-radius: 0;
+  padding-right: 8px;
+  width: 100%;
+}
+
+#modal .modal_controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+#modal #modal_denied {
+  margin-right: 15px;
+}
+
+#modal #modal_denied, #modal_success {
+  padding: 5px 8px;
+  border: 1px solid grey;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.err {
+  border: 1px solid red;
+}

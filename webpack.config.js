@@ -31,12 +31,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i, 
+        test: /\.(jpe?g|png|gif|svg)$/i,
         loader: 'file-loader',
         options: {
-          name: '/img/[name].[ext]'
-        }
-      }
+          name: '/img/[name].[ext]',
+        },
+      },
     ],
   },
   plugins: [
