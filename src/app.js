@@ -19,33 +19,20 @@ else {
   const messages = d.getElementById('messages');
   const controlsContainer = d.getElementById('controls');
   const geo = d.getElementById('geo');
-  const coords = d.getElementById('coords');
-  const city = d.getElementById('city');
 
   let timerID = null;
   let media = null;
   let chunks = [];
   let mediaType = null;
-
-  function renderGeo() {
-    const dataParsed = JSON.parse(localStorage.coords);
-    coords.innerText = `[ ${dataParsed.lati}, ${dataParsed.long} ]`;
-    city.innerText = localStorage.geo;
-  }
+  let city;
 
   const setCity = async (data) => {
     const res = await getCity(data);
     if (res === false) return false;
-    localStorage.geo = res;
-    localStorage.coords = JSON.stringify({
-      lati: data.coords.latitude,
-      long: data.coords.longitude,
-    });
-    if (geo.innerHTML === 'User denied geolocation') {
-      geo.innerHTML = `<div id="city">${localStorage.geo
-      }</div><div id="coords">[ ${data.coords.latitude}, ${data.coords.longitude} ]</div>`;
-    } else renderGeo();
-  };
+    city = res;
+    geo.innerHTML = `<div id="city">${res}</div><div id="coords">[ ${
+      data.coords.latitude}, ${data.coords.longitude} ]</div>`;
+  }
 
   function renderBlock(type = null, obj = null) {
     const li = d.createElement('li');
@@ -99,19 +86,17 @@ else {
       const result = validator(modalInput.value);
       const status = await setCity(result);
       if (result !== false && status !== false) {
+        setCity(result);
         renderBlock();
         modal.remove();
       } else modalInput.classList.add('err');
     });
   }
 
-  // Проверка записи о городе
-  if (!localStorage.geo) {
-    navigator.geolocation.getCurrentPosition(setCity, () => geo.innerText = 'User denied geolocation');
-  } else renderGeo();
+  navigator.geolocation.getCurrentPosition((data) => setCity(data, true), () => geo.innerText = 'User denied geolocation');
 
   function sending() {
-    if (input.value !== '') { localStorage.geo ? renderBlock() : showErrCoords(); }
+    if (input.value !== '') { city ? renderBlock() : showErrCoords(); }
   }
 
   submitBtn.addEventListener('click', sending);
