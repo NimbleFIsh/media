@@ -11,7 +11,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('/img/bg.svg');
+  background-image: url('/media/img/bg.svg');
   background-size: 16px;
   height: 100vh;
 }
@@ -75,7 +75,7 @@ input:focus {
 }
 
 #accept {
-  background-image: url(/img/accept.svg);
+  background-image: url(/media/img/accept.svg);
 }
 
 #time {
@@ -83,17 +83,17 @@ input:focus {
 }
 
 #denied {
-  background-image: url(/img/close.svg);
+  background-image: url(/media/img/close.svg);
   background-position: 5px 5px;
 }
 
 #control_audio {
   margin-right: 10px;
-  background-image: url(/img/voice.svg);  
+  background-image: url(/media/img/voice.svg);  
 }
 
 #control_video {
-  background-image: url(/img/camera.svg);
+  background-image: url(/media/img/camera.svg);
 }
 
 button {
